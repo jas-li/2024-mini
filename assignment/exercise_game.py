@@ -8,7 +8,7 @@ import random
 import json
 
 
-N: int = 3
+N: int = 10
 sample_ms = 10.0
 on_ms = 500
 
@@ -53,7 +53,8 @@ def scorer(t: list[int | None]) -> None:
     t_good = [x for x in t if x is not None]
 
     print(t_good)
-
+    avg = float(sum(t_good)) / len(t_good)
+    print(f"Min: {min(t_good)}\nMax: {max(t_good)}\nAverage: {avg}")
     # add key, value to this dict to store the minimum, maximum, average response time
     # and score (non-misses / total flashes) i.e. the score a floating point number
     # is in range [0..1]
@@ -75,7 +76,7 @@ if __name__ == "__main__":
     # using "if __name__" allows us to reuse functions in other script files
 
     led = Pin("LED", Pin.OUT)
-    button = Pin(15, Pin.IN, Pin.PULL_UP)
+    button = Pin(16, Pin.IN, Pin.PULL_UP)
 
     t: list[int | None] = []
 
@@ -85,7 +86,7 @@ if __name__ == "__main__":
         time.sleep(random_time_interval(0.5, 5.0))
 
         led.high()
-
+        
         tic = time.ticks_ms()
         t0 = None
         while time.ticks_diff(time.ticks_ms(), tic) < on_ms:
@@ -100,3 +101,4 @@ if __name__ == "__main__":
     blinker(5, led)
 
     scorer(t)
+
