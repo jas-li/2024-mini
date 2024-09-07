@@ -75,7 +75,7 @@ if __name__ == "__main__":
     # using "if __name__" allows us to reuse functions in other script files
 
     led = Pin("LED", Pin.OUT)
-    button = Pin(16, Pin.IN, Pin.PULL_UP)
+    button = Pin(15, Pin.IN, Pin.PULL_UP)
 
     t: list[int | None] = []
 
