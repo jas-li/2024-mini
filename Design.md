@@ -46,7 +46,8 @@ The code reads the analog value from the photocell, calculates the corresponding
 - Credentials are stored in variables but not committed to GitHub, though future versions should use environment variables for security.
 
 ## Cloud Upload:
-- Chose Firebase for cloud storage, uploading response data as JSON using `urequests.post()`.
+- Chose Firebase for its simplicity and easy REST API integration.
+- Uploaded response data as JSON using `urequests.post()`.
 - Implemented error handling during the upload to prevent crashes if the upload fails.
 
 ## Future Considerations:
