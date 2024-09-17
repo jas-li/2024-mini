@@ -30,3 +30,25 @@ The code reads the analog value from the photocell, calculates the corresponding
 
 ## Future Considerations:
 - Amplification and additional hardware could improve sound output.
+
+# Design Decisions for Exercise 3: Response Time Measurement and Cloud Upload
+
+## Hardware Setup:
+- **LED:** Used to signal when a response is required.
+- **Button:** Connected to GND and GP16, used to capture user response times.
+
+## Response Time Measurement:
+- Modified the script to compute average, minimum, and maximum response times over 10 flashes.
+- Button press records response times when the LED turns on, storing results for scoring.
+
+## WiFi Connection:
+- Set up WiFi using `network.WLAN`, with error handling to ensure the program continues if the connection fails.
+- Credentials are stored in variables but not committed to GitHub, though future versions should use environment variables for security.
+
+## Cloud Upload:
+- Chose Firebase for cloud storage, uploading response data as JSON using `urequests.post()`.
+- Implemented error handling during the upload to prevent crashes if the upload fails.
+
+## Future Considerations:
+- Enhance credentials security by using environment variables.
+- Improve error logging and extend cloud features for real-time data visualization.
