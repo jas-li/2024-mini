@@ -1,5 +1,6 @@
 # Exercise 1
 1. What are the "max_bright" and "min_bright" values you found?
+
 max_bright = 11000
 min_bright = 20000
 
@@ -39,3 +40,7 @@ for note, duration in melody:
 ```
 
 # Exercise 3
+User Stories:
+- As a player, I want to track my response time when the LED flashes so that I can test how fast my reaction speed is.
+- As a player, I want the average, minimum, and maximum response time after playing 10 flashes total so I can get insights into my performance and identify areas for improvement.
+- As a player, I want my statistics to be on FireBase so that I can view it another device.
