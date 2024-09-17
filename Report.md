@@ -4,6 +4,7 @@ max_bright = 11000
 min_bright = 20000
 
 # Exercise 2
+What we modified the exercise_sound.py script to play Fur Elise by Beethoven 
 ```python 
 # Dictionary of notes and their frequencies (in Hz)
 NOTES = {
@@ -27,5 +28,14 @@ melody = [
     ('C5', 0.4),
     ('A4', 0.8) 
 ]
+
+# Play Fur Elise
+for note, duration in melody:
+    freq = int(NOTES[note])
+    print(f"Playing note: {note}")
+    playtone(freq, duration)
+    quiet()  # Turn off the speaker between notes
+    utime.sleep(0.05)  # Short pause between notes
 ```
 
+# Exercise 3
