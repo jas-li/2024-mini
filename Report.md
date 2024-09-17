@@ -48,9 +48,15 @@ for note, duration in melody:
     quiet()  # Turn off the speaker between notes
     utime.sleep(0.05)  # Short pause between notes
 ```
+[Watch the video](https://github.com/jas-li/2024-mini/blob/main/Screenshots%20and%20Videos/Exercise_2_video.mp4)
+
 
 # Exercise 3
 User Stories:
 - As a player, I want to track my response time when the LED flashes so that I can test how fast my reaction speed is.
 - As a player, I want the average, minimum, and maximum response time after playing 10 flashes total so I can get insights into my performance and identify areas for improvement.
 - As a player, I want my statistics to be on FireBase so that I can view it another device.
+
+[Watch the video](https://github.com/jas-li/2024-mini/blob/main/Screenshots%20and%20Videos/Exercise_3_video.mov)
+
+[Code and output](https://github.com/jas-li/2024-mini/blob/main/Screenshots%20and%20Videos/Exercise_3_code%2Boutput.png)
