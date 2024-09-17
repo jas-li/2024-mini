@@ -13,3 +13,20 @@ Implemented a `clip()` function to ensure that the calculated duty cycle remains
 ## Loop Logic:
 The code reads the analog value from the photocell, calculates the corresponding duty cycle, and uses it to adjust the on/off timing of the LED to simulate brightness changes.
 
+# Design Decisions for Exercise 2: PWM Sound Output
+
+## PWM Setup:
+- Used GP16 for PWM output to the speaker.
+- Connected the speaker's black wire to GND and red wire to GP16.
+
+## Tone Generation:
+- Created a dictionary of note frequencies for *Für Elise*.
+- Used `playtone()` to generate tones by setting PWM frequency and duty cycle.
+- Turned off the speaker between notes with `quiet()`.
+
+## Melody Logic:
+- Stored the melody as a list of notes and durations.
+- Played each note for its duration, with short pauses in between.
+
+## Future Considerations:
+- Amplification and additional hardware could improve sound output.
