@@ -1,0 +1,51 @@
+name: CI for Assignment Exercises
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run light sensor and PWM tests (Exercise 1 and 2)
+        run: |
+          python exercise_light.py
+          python exercise_sound.py
+
+      - name: Mock Firebase upload (Exercise 3)
+        run: |
+          python -c "
+          import json, urequests;
+          data = {
+            'average_response_time': 300,
+            'min_response_time': 150,
+            'max_response_time': 450,
+            'score': 0.9,
+            'misses': 1,
+            'timestamps': [300, 150, 450]
+          };
+          response = urequests.post('https://ec463-miniproject-28784-default-rtdb.firebaseio.com/response_times.json', headers={'Content-Type': 'application/json'}, data=json.dumps(data));
+          print('Mock data upload complete.');
+          "
