@@ -25,9 +25,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+      # Remove Install dependencies step if not needed
+      # - name: Install dependencies
+      #   run: |
+      #     pip install -r requirements.txt
 
       - name: Run light sensor and PWM tests (Exercise 1 and 2)
         run: |
